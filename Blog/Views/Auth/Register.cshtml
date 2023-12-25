@@ -43,17 +43,18 @@
 
                         <div class="field input-field">
                             <input asp-for="Password" type="password" placeholder="Create password" class="password">
-                            <span asp-validation-for="Email"></span>
+                            <span asp-validation-for="Password"></span>
                         </div>
 
                         <div class="field input-field">
                             <input asp-for="ConfirmPassword" type="password" placeholder="Confirm password" class="password">
                             <i class="bx bx-hide eye-icon"></i>
-                            <span asp-validation-for="Email"></span>
+                            <span asp-validation-for="ConfirmPassword"></span>
                         </div>
 
                         <div class="field button-field">
-                            <button type="submit">Signup</button>
+                            <button type="submit" asp-action="Register">Signup</button>
+                            <div asp-validation-summary="All"></div>
                         </div>
                     </form>
 

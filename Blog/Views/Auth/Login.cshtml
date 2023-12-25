@@ -1,9 +1,12 @@
-﻿
+﻿@using Blog.Areas.Admin.Viewmodels.Auths;
+
 @{
     Layout = null;
 }
 
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model LoginVM
 
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com-->
@@ -26,13 +29,15 @@
         <div class="form login">
             <div class="form-content">
                 <header>Login</header>
-                <form action="#">
+                <form asp-action="Login" method="post">
                     <div class="field input-field">
-                        <input type="email" placeholder="Email" class="input">
+                        <input asp-for="Email" type="email" placeholder="Email" class="input">
+                        <span asp-validation-for="Email"></span>
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Password" class="password">
+                        <input asp-for="Password" type="password" placeholder="Password" class="password">
+                        <span asp-validation-for="Email"></span>
                         <i class='bx bx-hide eye-icon'></i>
                     </div>
 
@@ -41,7 +46,7 @@
                     </div>
 
                     <div class="field button-field">
-                        <button>Login</button>
+                        <button type="submit" asp-action="Login">Login</button>
                     </div>
                 </form>
 

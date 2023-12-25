@@ -32,15 +32,19 @@ namespace Blog
 			app.UseAuthorization();
             app.UseAuthentication();
 
-            app.MapControllerRoute(
-				name: "areas",
-				pattern: "{area=exists}/{controller=Slider}/{action=Index}/{id?}");
 
             app.MapControllerRoute(
 				name: "default",
 				pattern: "{controller=Home}/{action=Index}/{id?}");
 
-			app.Run();
+            app.MapControllerRoute(
+				name: "auth",
+				pattern: "{controller=Auth}/{action=Register}/{id?}");
+
+            app.MapControllerRoute(
+				name: "areas",
+				pattern: "{area=exists}/{controller=Slider}/{action=Index}/{id?}");
+            app.Run();
 		}
 	}
 }
